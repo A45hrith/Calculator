@@ -1,8 +1,8 @@
 package uk.ac.rhul.cs2800;
 
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +16,12 @@ class Stack_Tdd {
 
   @Before
   void test() {
-    Stack stack_main = new Stack();
+    new Stack();
   }
   
   @Test
   public void Empty_test() {
-    Stack stack_it = new Stack();
+    new Stack();
     assertTrue(stack_main.isEmpty());
   }
   
