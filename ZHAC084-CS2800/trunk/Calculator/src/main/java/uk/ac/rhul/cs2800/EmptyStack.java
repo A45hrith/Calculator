@@ -7,4 +7,9 @@ package uk.ac.rhul.cs2800;
  */
 public class EmptyStack extends Exception {
 
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
 }
