@@ -7,4 +7,9 @@ package uk.ac.rhul.cs2800;
  */
 public class BadType extends Exception {
 
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;//custom exception
+
 }
