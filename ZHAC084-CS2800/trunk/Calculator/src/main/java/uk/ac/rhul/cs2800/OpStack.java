@@ -7,7 +7,7 @@ package uk.ac.rhul.cs2800;
  */
 public class OpStack {
   
-  public Stack op_stack;
+  public Stack op_stack;//type of stack so uses arraylist
   private Symbol pop_symbol;
   private Symbol top_symbol;
   
