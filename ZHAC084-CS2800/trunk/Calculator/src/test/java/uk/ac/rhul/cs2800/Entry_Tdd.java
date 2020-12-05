@@ -18,10 +18,9 @@ class Entry_Tdd {
    */
   @Before 
   void setUp() throws Exception { 
-    //To check if objects can be created
-    Entry num = new Entry(5); 
-    Entry plus = new Entry(Symbol.Plus); // Test fails as Symbol enums not created
-    Entry minus = new Entry(Symbol.Minus);//Pass,after creating Symbol enums and contructor in Entry
+    new Entry(5); 
+    new Entry(Symbol.Plus);
+    new Entry(Symbol.Minus);
   }
   /**Method created to test different types.
    */
