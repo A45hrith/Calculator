@@ -74,4 +74,52 @@ public class Entry {
     return(str);
   }
   
+  /* (non-Javadoc)
+   * @see java.lang.Object#hashCode()
+   */
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + Float.floatToIntBits(number);
+    result = prime * result + ((other == null) ? 0 : other.hashCode());
+    result = prime * result + ((str == null) ? 0 : str.hashCode());
+    result = prime * result + ((type == null) ? 0 : type.hashCode());
+    return result;
+  }
+
+  /* Method used to check no duplicates object exists
+   * 
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    Entry other = (Entry) obj;
+    if (Float.floatToIntBits(number) != Float.floatToIntBits(other.number)) {
+      return false;
+    }
+    if (this.other != other.other) {
+      return false;
+    }
+    if (str == null) {
+      if (other.str != null) {
+        return false;
+      }
+    } else if (!str.equals(other.str)) {
+      return false;
+    }
+    if (type != other.type) {
+      return false;
+    }
+    return true;
+  }
+  
 }
