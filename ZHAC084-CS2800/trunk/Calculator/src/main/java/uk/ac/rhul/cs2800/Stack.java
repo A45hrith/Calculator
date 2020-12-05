@@ -62,5 +62,54 @@ public class Stack {
       throw new EmptyStack();
     }
   }
+  
+  /* Hashcode method will check to ensure no redundancy
+   * @see java.lang.Object#hashCode()
+   */
+  
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((enter == null) ? 0 : enter.hashCode());
+    result = prime * result + i;
+    return result;
+  }
+
+  /* Method used to check no duplicates object exists
+   * 
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    Stack other = (Stack) obj;
+    if (enter == null) {
+      if (other.enter != null) {
+        return false;
+      }
+    } else if (!enter.equals(other.enter)) {
+      return false;
+    }
+    if (i != other.i) {
+      return false;
+    }
+    return true;
+  }
+
+  /* (non-Javadoc) 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    return "Stack [size=" + i + ", entries=" + enter + "]";
+  }
 
 }
