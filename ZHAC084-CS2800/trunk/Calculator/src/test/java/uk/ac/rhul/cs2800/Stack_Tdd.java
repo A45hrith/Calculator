@@ -11,43 +11,65 @@ import org.junit.jupiter.api.Test;
  * 
  *This class is created to test the main Stack class whichrepresents the entries.
  */
-class Stack_Tdd {
-  private Stack stack_main = new Stack();  
+public class Stack_Tdd {
+
+  private Stack stack1 = new Stack();
 
   @Before
-  void test() {
-    new Stack();
-  }
-  
-  @Test
-  public void Empty_test() {
-    new Stack();
-    assertTrue(stack_main.isEmpty());
-  }
-  
-  @Test
-  public void stack_pop() throws EmptyStack, BadType{
-    Entry val = new Entry(5);
-    stack_main.push(val);
-    assertTrue("Checking Pop val", stack_main.pop().getValue() == 5);
-    stack_main.push(val);
-    assertTrue("checking at negative index",stack_main.pop().getValue() == 5);
-  }
-  
-  @Test
-  public void stack_top() throws EmptyStack, BadType{
-    assertTrue("Empty",stack_main.size() == 0);
-    Entry val1 = new Entry(5);
-    Entry val2 = new Entry(6);
-    stack_main.push(val1);
-    stack_main.push(val2);
-    assertTrue("Checking pop and top vals",stack_main.top().getValue() == stack_main.pop().getValue());
-    assertFalse("Compare vals",stack_main.top().getValue() != stack_main.top().getValue());
-  }
-  
-  @Test
-  public void stack_size() {
-    assertTrue("Testinf for empty stack",stack_main.size()==0);
+  public void setup() {
+    Stack stack1 = new Stack();
+    //Test initially fails without connstructor. Passess after creating the class and constructor.
   }
 
+  @Test
+  public void testEmpty() {
+    Stack n = new Stack();
+    assertTrue(stack1.isEmpty());
+  }
+
+  @Test
+  public void testStackSize() {
+    //Test below fails as size() method is not created
+    assertTrue("Check for an empty stack",stack1.size() == 0);
+    //size method created in class Stack
+    //Test passes with a hard coded value of 0.
+    assertTrue("Check for an empty stack",stack1.size() == 0);
+  }
+  /** Test below is used to check the pop() method and array IndexOutOfBound.
+   * @throws BadType error if an equality is performed with differnt data types
+   * @throws EmptyStack is thrown, if a pop() or top() is used at empty stack
+   */
+  
+  @Test
+  public void testStackPop() throws BadType, EmptyStack {
+    //push method created in class stack
+    Entry value = new Entry(5);
+    stack1.push(value);//Test passes
+    //Test passes with hardcoded value of 5.
+    assertTrue("To check if popped value equals",stack1.pop().getValue() == 5);
+    stack1.push(value);//Test passes
+    //Test failed. Added validity checks to ensure it handles index <0.
+    assertTrue("Check to see it fails at index=-1",stack1.pop().getValue() == 5);
+  }
+  /** Test below is used to improve the top() and toString() method.
+   * @throws BadType error if an equality is performed with differnt data types
+   * @throws EmptyStack is thrown, if a pop() or top() is used at empty stack
+   */
+  
+  @Test
+  public void testStackTop() throws BadType, EmptyStack {
+    assertTrue("Stack is empty",stack1.size() == 0);//Initial check to see stack is empty
+    Entry value2 = new Entry(5);
+    Entry value3 = new Entry(6);
+    stack1.push(value2);//First value pushed to the stack
+    stack1.push(value3);// value pushed. Added new top() method (seek value) to class Stack.
+    System.out.println(stack1.toString());
+    System.out.println(stack1.top().getValue());//Printed to check it works right
+    assertFalse("Compare stack values",stack1.top().getValue() != stack1.top().getValue());
+    //58--> Checked to see that values don't equal and the method doesnt pops.
+    assertTrue("Check top and popped values",stack1.top().getValue() == stack1.pop().getValue());
+    //59--> Similar test, done to check top() and pop() methods.
+
+
+  }
 }
