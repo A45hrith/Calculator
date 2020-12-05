@@ -17,13 +17,12 @@ public class Stack_Tdd {
 
   @Before
   public void setup() {
-    Stack stack1 = new Stack();
-    //Test initially fails without connstructor. Passess after creating the class and constructor.
+    new Stack();
   }
 
   @Test
   public void testEmpty() {
-    Stack n = new Stack();
+    new Stack();
     assertTrue(stack1.isEmpty());
   }
 
