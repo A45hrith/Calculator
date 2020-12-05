@@ -17,8 +17,8 @@ class OpStack_Tdd {
     OpStack init = new OpStack();
     init.push(Symbol.Plus);
     init.push(Symbol.Plus);
-    assertEquals("Checking equality",init.pop(),init.pop());
-    assertTrue("Checking Empty",init.isEmpty()==true);
+    assertEquals("Checking if popped values are equal",init.pop(),init.pop());
+    assertTrue("Checking if Stack is Empty",init.isEmpty()==true);
   }
 
 }
