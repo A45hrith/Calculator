@@ -7,8 +7,10 @@ package uk.ac.rhul.cs2800;
  */
 public class StrStack {
   
-  public Stack stack_str;
-  private String pop_str;
+//public Stack StrStack;//check if class stack or of api collection
+  
+  public Stack stack_str;//type of stack so uses arraylist
+  private String pop_str;//May check the type of it either class.string or enum.string
   
   public StrStack() {
     this.stack_str = new Stack();
@@ -18,10 +20,9 @@ public class StrStack {
    * This method is defined to push the string into the main Stack.
    * @param string is the value which will be pushed.
    */
-  public void push(String string) {
+  public void push(String string) {//Simple process here
     Entry val = new Entry(string);
     stack_str.push(val);
-    
   }
 
   /**
@@ -31,6 +32,7 @@ public class StrStack {
   public boolean isEmpty() {
     return(stack_str.isEmpty());
   }
+//This will get the size of the stack at anypoint
 
   /**
    * This method is defined to pop the val from stack
@@ -41,5 +43,6 @@ public class StrStack {
     pop_str = stack_str.pop().getString();
     return(pop_str);
   }
+//This method checks if stack is empty
 
 }
