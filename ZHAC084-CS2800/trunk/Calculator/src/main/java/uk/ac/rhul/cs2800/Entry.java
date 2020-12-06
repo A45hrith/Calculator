@@ -34,14 +34,13 @@ public class Entry {
    * Verifying if there's any other string involved.
    * @param words are passed for confirmation.
    */
-  public Entry(String words) {
-    this.str = words;
+  public Entry(String str) {
+    this.str = str;
     this.type = Type.String;
   }
 
   public Type getType() {
     return(type);
-    
   }
 
   /**
