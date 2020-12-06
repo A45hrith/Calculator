@@ -7,15 +7,15 @@ package uk.ac.rhul.cs2800;
  */
 public class NumStack {
   
-  public Stack num_stk;//type of stack so uses arraylist
-  private float poptop;
+  public Stack numStack;//type of stack so uses arraylist
+  private float popNum;
   public float push;
   
   /**Creates an object of stack.
    */
   
   public NumStack() {
-    this.num_stk = new Stack();
+    this.numStack = new Stack();
   }
   
   /**This method will push the number onto the stack.
@@ -23,7 +23,7 @@ public class NumStack {
    */
 
   public void push(float i) {
-    num_stk.push(new Entry(i)); 
+    numStack.push(new Entry(i)); 
   }
   
   /**This method will pop elements from stack.
@@ -33,14 +33,14 @@ public class NumStack {
 
   public float pop() throws EmptyStack{
     try {
-      poptop = num_stk.pop().getValue();
+      popNum = numStack.pop().getValue();
     } catch (BadType e) {
       e.printStackTrace();
     }
-    return (poptop);   
+    return (popNum);   
   }
   
   public boolean isEmpty() {    
-    return (num_stk.isEmpty());
+    return (numStack.isEmpty());
   }
 }
