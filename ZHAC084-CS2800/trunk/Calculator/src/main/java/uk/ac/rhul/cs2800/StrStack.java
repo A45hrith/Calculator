@@ -44,5 +44,9 @@ public class StrStack {
     return(pop_str);
   }
 //This method checks if stack is empty
+  
+  public int getsize() {
+    return (stack_str.size());
+  }
 
 }
