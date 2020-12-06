@@ -28,13 +28,11 @@ public enum Symbol {
   /**
    * @return a string which is converted from char.
    */
-  public char to_Character() {
+  public char toChar() {
     return (this.calculation);
   }
   
-  public String to_String() {
+  public String toString() {
     return (Character.toString(calculation));
   }
-    
-
 }
