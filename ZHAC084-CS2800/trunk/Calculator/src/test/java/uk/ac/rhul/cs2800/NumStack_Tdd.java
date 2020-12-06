@@ -12,11 +12,11 @@ class NumStack_Tdd {
 
   @Test
   void test() throws EmptyStack{
-    NumStack init = new NumStack();
-    init.push(12348);
-    init.push(1359);
-    init.push(123678);
-    assertFalse("Checking Empty", init.pop()==init.pop());
+    NumStack obj = new NumStack();
+    obj.push(12348);
+    obj.push(1359);
+    obj.push(123678);
+    assertFalse("Checking Empty", obj.pop()==obj.pop());
   }
 
 }
