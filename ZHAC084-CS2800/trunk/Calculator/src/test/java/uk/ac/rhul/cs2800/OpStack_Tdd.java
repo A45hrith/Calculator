@@ -13,11 +13,11 @@ class OpStack_Tdd {
 
   @Test
   void test() throws EmptyStack, BadType{
-    OpStack init = new OpStack();
-    init.push(Symbol.Plus);
-    init.push(Symbol.Plus);
-    assertEquals("Checking if popped values are equal",init.pop(),init.pop());
-    assertTrue("Checking if Stack is Empty",init.isEmpty()==true);
+    OpStack obj = new OpStack();
+    obj.push(Symbol.Plus);
+    obj.push(Symbol.Plus);
+    assertEquals("Checking if popped values are equal",obj.pop(),obj.pop());
+    assertTrue("Checking if Stack is Empty",obj.isEmpty()==true);
   }
 
 }
