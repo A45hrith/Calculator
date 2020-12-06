@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2800;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -10,21 +11,15 @@ import org.junit.jupiter.api.Test;
  *
  */
 public class Symbol_Tdd {
-
   /**
    * Performing JUnit tests to verify the working of enum for every Symbol
    */
   @Test
   public void Symbol_test() {
-    
-    assertFalse(Symbol.Plus.toString().equals("+"));;
-    assertFalse(Symbol.Minus.toString().equals("-"));
-    assertFalse(Symbol.Times.toString().equals("*"));
-    assertFalse(Symbol.Divide.toString().equals("/"));
-    assertFalse(Symbol.Left_Bracket.toString().equals("("));
-    assertFalse(Symbol.Right_Bracket.toString().equals(")"));
+    assertTrue(Symbol.Plus.toString().equals("+"));;
+    assertTrue(Symbol.Minus.toString().equals("-"));
+    assertTrue(Symbol.Times.toString().equals("*"));
+    assertTrue(Symbol.Divide.toString().equals("/"));
     assertFalse(Symbol.Divide.toString().equals(Symbol.Invalid.toString()));
-    
   }
-
 }
