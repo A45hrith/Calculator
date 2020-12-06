@@ -3,8 +3,8 @@ package uk.ac.rhul.cs2800;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.Before;
+import static org.junit.Assert.fail;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**This tdd test is for infix expression and tests is done to ensure it works right.
@@ -19,7 +19,7 @@ private Calculator calculator;
   //The value by which the answer can differ
   private static final float valDiff = 0.01f;
   
-  @Before //This test initilises the object and checks that there's no errors
+  @BeforeEach //This test initilises the object and checks that there's no errors
   public final void setUp() throws Exception {
     calculator = new StandardCalc();
   }
@@ -29,9 +29,20 @@ private Calculator calculator;
    * @throws EmptyStack if stack out of elements.
    * @throws BadType 
    */
-  @Test //Checks that thrown error is invalidexpression
-  public final void testEmpty() throws InvalidExpression, EmptyStack, BadType {
-    calculator.evaluate("");
+  @Test//Checks that thrown error is invalidexpression
+  public final void testEmpty() throws EmptyStack, BadType {
+    try {
+      calculator.evaluate("");
+    } catch (InvalidExpression e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (EmptyStack e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (BadType e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   
@@ -41,20 +52,22 @@ private Calculator calculator;
    */
   @Test
   public final void singleNum() throws EmptyStack, BadType {
+    final float onenum = 9;
+    final String onenumStr = String.valueOf(onenum);
     try {
-      assertFalse("Trying an integer", 5 != calculator.evaluate("5"));
+      assertTrue("Trying an integer", onenum == calculator.evaluate(onenumStr));
     } catch (final InvalidExpression e) {
-      fail("Could not see " + "5" + "as a valid expression: " + e);
+      fail("Could not see " + onenumStr + "as a valid expression: " + e);
     }
   }
   
   /**This will test to see if an arbitrary number can be evaluated.
    * 
    * @throws EmptyStack  if stack out of elements.
-   * @throws BadType 
+   * @throws Exception 
    */
   @Test
-  public final void twoDigit() throws EmptyStack, BadType {
+  public final void twoDigit() throws EmptyStack, Exception {
     final float what = 52;
     final String whatStr = String.valueOf(what);
     try {          
@@ -74,9 +87,9 @@ private Calculator calculator;
   @Test//Simple expression test
   public void testOne() throws InvalidExpression, EmptyStack, BadType {
     String what = "( 53 + 2 ) - 43"; 
-    String str2 = "( 3 + 5 ) * 8";
+    String onenum = "( 3 + 5 ) * 8";
     assertTrue("Check the answer of the expression",calculator.evaluate(what) == 12.0);
-    assertTrue("Check the answer of the expression",calculator.evaluate(str2) == 64.0);
+    assertTrue("Check the answer of the expression",calculator.evaluate(onenum) == 64.0);
   }
   
   /**
@@ -93,5 +106,4 @@ private Calculator calculator;
     assertEquals(" Multiple brackets", 9, calculator.evaluate(" 3 + 2 + 4"),valDiff);
     assertEquals("Complicated expression", 15,calculator.evaluate("( 3 + 2 ) * ( 2 + 1 )"),valDiff);
   }
-
 }
