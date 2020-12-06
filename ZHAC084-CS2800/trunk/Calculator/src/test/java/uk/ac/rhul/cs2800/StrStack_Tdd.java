@@ -13,11 +13,11 @@ class StrStack_Tdd {
 
   @Test
   void test() throws EmptyStack {
-    StrStack init = new StrStack();
-    init.push("99");
-    init.push("2435679");
-    assertFalse("Verifying equality",init.pop() == init.pop());
-    assertTrue("Checking if empty",init.isEmpty() == true);
+    StrStack obj = new StrStack();
+    obj.push("99");
+    obj.push("2435679");
+    assertFalse("Verifying equality",obj.pop() == obj.pop());
+    assertTrue("Checking if empty",obj.isEmpty() == true);
   }
 
 }
