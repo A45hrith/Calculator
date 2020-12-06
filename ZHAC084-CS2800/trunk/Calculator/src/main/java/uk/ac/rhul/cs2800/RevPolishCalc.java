@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class RevPolishCalc implements Calculator {
 
-  private NumStack stack = new NumStack();
+private NumStack stak = new NumStack();
   
   /**This method is used to evaluate a postfix expression.
    * Throws @InvalidExpression if the expression is not valid
@@ -19,46 +19,46 @@ public class RevPolishCalc implements Calculator {
     //Holds the string
     String str = " ";
 
-    Scanner str_val = new Scanner(what);  
+    Scanner strVal = new Scanner(what);  // Reading from System.in
     try {
-      while (str_val.hasNext()) {
+      while (strVal.hasNext()) {
         
-        if (str_val.hasNext(".*\\d+.*")) {     
-          stack.push((float) Double.parseDouble(str = str_val.next()));
+        if (strVal.hasNext(".*\\d+.*")) { //To check if the string is digits or chars     
+          stak.push((float) Double.parseDouble(str = strVal.next()));
         } else {
-          String val = str_val.next();
-          float num1 = stack.pop();
-          float num2 = stack.pop();
+          String val = strVal.next();//Pops the elements froms stack from operation
+          float num1 = stak.pop();
+          float num2 = stak.pop();
   
           if (val.equals("+")) {
-            stack.push(num2 + num1);
+            stak.push(num2 + num1);//Adds the 2 numbers
           }
           if (val.equals("-")) {
-            stack.push(num2 - num1);
+            stak.push(num2 - num1);
           }
           if (val.equals("*")) {
-            stack.push(num2 * num1);
+            stak.push(num2 * num1);//Multiplies them
           }
           if (val.equals("/")) {
-            stack.push(num2 / num1);
-          }                     
+            stak.push(num2 / num1);
+          }        
+          //counter=-2;               
         }
       } 
     } catch (Exception e) {
       System.out.println("Invalid expression encountered");
       throw new InvalidExpression();
     }
-    str_val.close();
-    return stack.pop(); 
+    strVal.close();
+    return stak.pop(); // Returns the only value of the stack left the final answer.
   }
   
   /**This will check if the operator is valid.
-   * @param sy checks if the operator equals
+   * @param ch checks if the operator equals
    * @return if any of them are true. Validtes to ensure no errors.
    */
-  public  boolean Op_stack(String sy) {
-    return (sy.equals("+") || sy.equals("-") || sy.equals("*") 
-        || sy.equals("/") || sy.equals("^") || sy.equals("(") || sy.equals(")"));
+  public  boolean isOp(String ch) {
+    return (ch.equals("+") || ch.equals("-") || ch.equals("*") 
+        || ch.equals("/") || ch.equals("^") || ch.equals("(") || ch.equals(")"));
   }
-  
 }
