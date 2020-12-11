@@ -8,6 +8,7 @@
   <name>CS2800 Calculator</name>
   <description>A learning exercise on how to write a good code using SE tools and techniques</description>
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -17,6 +18,11 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>5.4.0</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>13</version>
       </dependency>
     </dependencies>
     <build>
